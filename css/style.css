@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css?family=Rouge+Script');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,600,700');
+/* CSS RESET BEGINS */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+/* CSS RESET ENDS */
+
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+*:focus {
+    outline: 0;
+    outline: none;
+}
+html, body{
+	height: 100%;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+/* Body tag styling and positioning. */
+body{
+	background-color: rgba(255,234,137,1.00)
+}
+
+header{
+    z-index: 2;
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0,0,0,.5)
+}
+.navContain{
+	padding: 0px 30px 0px 30px;
+	position: fixed;
+	min-height: 50px;
+	z-index: 10;
+	width: 100%;
+	transition: 0.35s all ease;
+}
+/* Navigation menu hamburger icon positioning. */
+#hamburger{
+	float: right;
+    cursor: pointer;
+	transition: 0.5s;
+}
+#hamburger:hover{
+	opacity: 0.7;
+	transition: 0.5s;
+}
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,234,137,1.00);
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+	font-family: 'Open Sans', sans-serif;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 30px;
+	font-weight: 500;
+	color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #818181;
+}
+
+.overlay .closebtn {
+    margin-top: 20px;
+    font-size: 50px;
+	font-weight: 100;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+.border{
+    margin: 0 auto;
+    width: 400px;
+    border-top: 1px solid white;
+}
+.intro{
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/backgrounds/intro.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    position: relative;
+}
+.centerContent h1{
+    font-family: 'Rouge Script', cursive;
+    color: white;
+    font-size: 68px;
+}
+.centerContent h2{
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+}
+.centerContent h3{
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+}
+.centerContent p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+.centerContent{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 380px;
+    text-align: center;
+}
+#date{
+    padding-bottom: 100px;
+}
+.button{
+    border: 1px solid white;
+    width: 200px;
+    height: 60px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 60px;
+    color: white;
+    -webkit-transition: background .25s;
+    transition: background .25s;
+}
+.button:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    -webkit-transition: background .25s;
+    transition: background .25s;
+}
+.buttonText{
+    display: inline-block;
+}
+.button p{
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+.countdown{
+    z-index: 1;
+    width: 100%;
+    height: 200px;
+    color: black;
+	border-bottom: 1px solid black;
+    
+    position: relative;
+}
+.count{
+	width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.countd{
+    font-family: 'Open Sans', sans-serif;
+    display: inline-block;
+    margin: 0 15px;
+    font-size: 2vw;
+
+}
+.count span{
+    font-family: 'Rouge Script', cursive;
+    display: block;
+    font-size: 6vw;
+}
+@media only screen and (max-width: 500px){
+	.countdown{
+		height: 100px;
+	}
+	.countd{
+		font-size: 4vw;
+
+	}
+	.count span{
+		font-size: 10vw;
+	}
+}
+.rsvp{
+	z-index: 1;
+    width: 100%;
+    height: 120%;
+    background-color: rgba(255,234,137,1.00);;
+    position: relative;
+}
+.rsvpContent h1{
+    font-family: 'Rouge Script', cursive;
+    color: white;
+    font-size: 68px;
+	text-align: center;
+}
+.rsvpContent h2{
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+}
+.rsvpContent h3{
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+}
+.rsvpContent p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+.rsvpContent{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 400px;
+    text-align: left;
+}
+form{
+	font-family: 'Open Sans', sans-serif;
+	width: 100%;
+}
+label{
+	font-size: 20px;
+}
+.inputStyle{
+	font-size: 16px;
+	color: black;
+	background: none;
+	padding-bottom: 10px;
+	border-bottom: 1px solid black;
+	width: 100%;
+}
+button{
+	border: 1px solid black;
+	background: none;
+    width: 200px;
+    height: 60px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 60px;
+    color: black;
+    -webkit-transition: background .25s;
+    transition: background .25s;
+}
+button:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    -webkit-transition: background .25s;
+    transition: background .25s;
+}
+button p{
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+#errors{
+    padding-top: 30px;
+}
+@media only screen and (max-width: 500px){
+	form{
+		width: 80vw;
+		margin: 0 auto;
+	}
+}
+.venue{
+    z-index: 1;
+    width: 100%;
+    height: 75%;
+    background-image: url("../images/backgrounds/bradfordb.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    position: relative;
+}
+.map{
+    z-index: 1;
+    width: 100%;
+    height: 50%; 
+}
+.venueInfo{
+    z-index: 1;
+    width: 100%;
+    height: 65%;
+	background-color: rgba(255,234,137,1.00);
+	line-height: 26px;
+	
+	position: relative;
+}
+.venueInfo a{
+	color: black;
+	font-weight: 600;
+}
+.venueInfo a:hover{
+	text-decoration: none;
+}
+
+.hotel{
+    z-index: 1;
+    width: 100%;
+    height: 75%;
+    background-image: url("../images/backgrounds/hotelbg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+    position: relative; 
+}
+.hotelInfo{
+    z-index: 1;
+    width: 100%;
+    height: 35%;
+	background-color: rgba(255,234,137,1.00);
+	line-height: 26px;
+	
+	position: relative;
+}
+.hotelInfo a{
+	color: black;
+	font-weight: 600;
+}
+.hotelInfo a:hover{
+	text-decoration: none;
+}
+#container{
+	
+}
+#main{
+	overflow: auto;
+}
+
+.gallery{
+	margin-top: 16px;
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.galleryItem{
+	width: 100%;
+	position: relative;
+    flex-basis: 50%;
+}
+.galleryItem .galleryImage{
+	opacity: 1;
+}
+
+.galleryImage{
+	width: 100%;
+	display: block;
+}
+
+@media only screen and (min-width: 33.75em){
+	.galleryItem{
+		flex-basis: 50%;
+	}
+}
+
+@media only screen and (min-width: 60em){
+	.galleryItem{
+		flex-basis: calc(100% / 4);
+	}
+}

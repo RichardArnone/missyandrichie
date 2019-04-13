@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Missy and Richie</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lightbox.min.css">
+</head>
+
+<script>
+    function myFunction(x) {
+        x.classList.toggle("change");
+    }
+</script>
+
+    <body>
+        <header>
+            <div class="navContain">
+    		<nav id="myNav" class="overlay">  			
+    			<div class="overlay-content">
+    				<a href="#rsvp" onclick="closeNav()">RSVP</a>
+					<a href="#venue" onclick="closeNav()">The Venue</a>
+					<a href="#hotel" onclick="closeNav()">Accommodations</a>
+					<a href="#container" onclick="closeNav()">Photos</a>
+					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    			</div>
+    		</nav>   		
+    		<span style="color: white" onclick="openNav()"><img id="hamburger" src="images/hamburger.png" alt="Nagivation Menu" width="20px" /></span>
+			</div>
+        </header>
+        
+        <section class="intro">
+            <div class="centerContent">
+                <h1>Melissa &amp; Richard</h1>
+                <br>
+                <div id="date">
+                    <img src="images/svgs/date.svg" width="240px" alt="July 27, 2019" />
+                </div>
+                
+                <a href="#rsvp"><div class="button">
+                    <div class="buttonText">
+                        <p>RSVP</p>
+                    </div>
+                </div></a>
+            </div>
+        </section>
+        
+        <section class="countdown">
+            <div class="count">
+                <div class="countd">
+                    <span id="days">00</span>
+                    days
+                </div>
+            
+                <div class="countd">
+                    <span id="hours">00</span>
+                    hours
+                </div>
+
+                <div class="countd">
+                    <span id="minutes">00</span>
+                    minutes
+                </div>
+
+                <div class="countd">
+                    <span id="seconds">00</span>
+                    seconds
+                </div>
+            </div>
+        </section>
+        
+        <script type="text/javascript">
+            var count = new Date("July 27, 2019 14:00:00").getTime();
+
+                var x = setInterval(function(){
+                var now = new Date().getTime();
+                var d = count - now;
+
+                var days = Math.floor(d/(1000*60*60*24));
+                var hours = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+                var minutes = Math.floor((d%(1000*60*60))/(1000*60));
+                var seconds = Math.floor((d%(1000*60))/1000);
+
+                document.getElementById("days").innerHTML = days;
+                document.getElementById("hours").innerHTML = hours;
+                document.getElementById("minutes").innerHTML = minutes;
+                document.getElementById("seconds").innerHTML = seconds;
+
+                if(d <= 0){
+                    clearInterval(x);
+                }
+            });
+        </script>
+		
+		<section id="rsvp" class="rsvp">
+			<div class="rsvpContent">
+                <h1 style="color: black; padding-bottom: 50px;">RSVP</h1>
+                <br>
+                
+				<form id="rsvpForm" name="submit-to-google-sheet">
+					<div>
+						<label>Full name:*</label><br><br>
+						<input id="firstguest" class="inputStyle" type="text" name="firstGuest" placeholder="Full Name"/>
+					</div><br><br>
+
+					<div>
+						<label>Full name of second guest, if applicable:</label><br><br>
+						<input class="inputStyle" type="text" name="secondGuest" placeholder="Full Name"/>
+					</div><br><br>
+
+					<div>
+						<label>*Will we see you there?*</label><br><br>
+						<label class="radio-inline"><input type="radio" name="attending" value="Yes"> Yes</label>
+						<label class="radio-inline"><input type="radio" name="attending" value="No" >No</label>
+					</div><br><br>
+					
+					<div>
+						<label>Do you have any dietary restictions?</label><br><br>
+						<input class="inputStyle" type="text" name="diet" placeholder="N/A"/>
+					</div><br><br>
+					
+					<div>
+						<label>You will find me on the dance floor if you play...</label><br><br>
+						<input class="inputStyle" type="text" name="song" placeholder="Kidding, you won't find me on the dance floor."/>
+					</div><br><br>
+
+					<div>
+						<button type="submit" id="submit-form">Submit</button>
+					</div>
+                    
+                    <div id="errors">
+                        <p style="color: red; font-size: 14px;">*One or more fields have not been filled out.</p>
+                    </div>
+				</form>
+                
+                <div id="yesMessage">
+                    <p style="color: black;">We look forward to seeing you on our special day!</p>
+                </div>
+				
+				<div id="noMessage">
+                    <p style="color: black;">Thank you for letting us know. Your presence will be missed!</p>
+                </div>
+				
+				<script>
+					const scriptURL = 'https://script.google.com/macros/s/AKfycbyJYjeozSN3mFLUpFMJHY3LNU-s_9VMOCmPYD34n5DGkInqWV0/exec'
+					const form = document.forms['submit-to-google-sheet']
+
+					form.addEventListener('submit', e => {
+					e.preventDefault()
+					fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+					  .then(response => console.log('Success!', response))
+					  .catch(error => console.error('Error!', error.message))
+					})
+				</script>
+            </div>
+		</section>
+            
+        <section id="venue" class="venue">
+            <div class="centerContent">
+                <h1 style="color: black;">The Venue</h1>
+                <br>
+                <h2 style="color: black;">The Bradford Barn<br><br></h2>
+                <h3 style="color: black;">3287 9th Line<br>Bradford ON, L3Z 2A5</h3>
+            </div>
+        </section>
+		
+		<section class="venueInfo">
+            <div class="centerContent">
+                <p style="color: black;">The Bradford Barn is a picturesque farm estate situated on a sprawling, forested country landscape. We will have a designated area for parking on the property. Please expect uneven surfaces such as grassy fields and gravel walkways.<br><br>Children are welcome to the ceremony but please let the Bride and Groom know, so additional seating can be arranged.</p><br>
+				<div style="border-bottom: 1px solid black;"></div><br>
+				<h2 style="color: black;">House Rules</h2><br>
+				<p style="color: black;">1. Smoking at the fire pit only.<br>2. No Stiletto heels on the property or in the barn.<br></p>
+            </div>
+        </section>
+        
+        <section class="map">
+            <iframe width="100%" height="100%" frameborder="" style="border:0"
+src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJSY2RtUXEKogRedmXXLGBddk&key=AIzaSyA2Q85WBPeC702G8bTD26AJRmQfBwY-0-U" allowfullscreen></iframe>
+        </section>
+        
+        <section id="hotel" class="hotel">
+            <div class="centerContent">
+                <h1>Accommodations</h1>
+                <br>
+                <h2>Best Western<br><br></h2>
+                <h3>17565 Yonge Street<br>Newmarket ON, L3Y 5H6</h3>
+            </div>
+        </section>
+		
+		<section class="hotelInfo">
+            <div class="centerContent">
+                <p style="color: black;">A block of single/double occupancy rooms have been reserved for $130 + HST per night. Contact the hotel directly at <a href="tel:1-800-575-0601">1-800-575-0601</a> to make reservations by
+referencing &quot;<span style="font-weight: 600">Lee/Arnone Wedding</span>&quot;.<br><br>The cut off date to book is June 11, 2019.</p>
+            </div>
+        </section>
+		
+		<section id="registry" class="registry">
+            <div class="centerContent">
+                <h1>Registry</h1>
+                <br>
+                <h2>W<br><br></h2>
+                <h3>17565 Yonge Street<br>Newmarket ON, L3Y 5H6</h3>
+            </div>
+        </section>
+        
+        <div id="container">
+			<div id="main">
+    	
+                <div class="galleryWrapper">
+                    <section class="gallery">
+
+                        <a href="images/gallery/06.jpg" class="galleryItem" data-lightbox="Engagement">
+                            <img class="galleryImage" src="images/gallery/t_06.jpg" alt="Engagement">
+                        </a>
+
+                        <a href="images/gallery/05.jpg" class="galleryItem" data-lightbox="Engagement">
+                            <img class="galleryImage" src="images/gallery/t_05.jpg" alt="Engagement">
+                        </a>
+
+                        <a href="images/gallery/04.jpg" class="galleryItem" data-lightbox="Engagement">
+                            <img class="galleryImage" src="images/gallery/t_04.jpg" alt="Engagement">
+                        </a>
+
+                        <a href="images/gallery/03.jpg" class="galleryItem" data-lightbox="Engagement">
+                            <img class="galleryImage" src="images/gallery/t_03.jpg" alt="Engagement">
+                        </a>
+
+                        <a href="images/gallery/02.jpg" class="galleryItem" data-lightbox="Engagement">
+                            <img class="galleryImage" src="images/gallery/t_02.jpg" alt="Engagement">
+                        </a>
+
+                        <a href="images/gallery/01.jpg" class="galleryItem" data-lightbox="Engagement">
+                            <img class="galleryImage" src="images/gallery/t_01.jpg" alt="Engagement">
+                        </a>
+
+                        <a href="images/gallery/07.jpg" class="galleryItem" data-lightbox="Engagement">
+                            <img class="galleryImage" src="images/gallery/t_07.jpg" alt="Engagement">
+                        </a>
+
+                        <a href="images/gallery/09.jpg" class="galleryItem" data-lightbox="Engagement">
+                            <img class="galleryImage" src="images/gallery/t_09.jpg" alt="Engagement">
+                        </a>
+
+                    </section>
+                </div>	
+							
+		    </div>
+		</div>
+		
+	<script>
+		function openNav() {
+			document.getElementById("myNav").style.height = "100%";
+		}
+
+		/* Close */
+		function closeNav() {
+			document.getElementById("myNav").style.height = "0%";
+		}
+	</script>
+    <script src="js/lightbox.min.js"></script>
+		
+    </body>
+</html>
