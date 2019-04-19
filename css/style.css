@@ -16,6 +16,8 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 }
 html, body{
 	height: 100%;
+	width: 100%;
+	
 }
 
 html{
@@ -23,7 +25,8 @@ html{
 }
 /* Body tag styling and positioning. */
 body{
-	background-color: rgba(255,234,137,1.00)
+	background-color: rgba(255,234,137,1.00);
+	min-width: 100%;
 }
 
 header{
@@ -32,7 +35,7 @@ header{
     height: 50px;
     width: 100%;
     padding: 20px;
-    background-color: rgba(0,0,0,.5)
+    background-color: rgba(0,0,0,.5);
 }
 .navContain{
 	padding: 0px 30px 0px 30px;
@@ -145,8 +148,22 @@ header{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    min-width: 380px;
+
     text-align: center;
+}
+.infoContent{
+	padding: 40px 40px;
+	text-align: center;
+}
+.infoContent h2{
+	font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+}
+.infoContent p{
+	font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
 }
 #date{
     padding-bottom: 100px;
@@ -183,7 +200,6 @@ header{
     height: 200px;
     color: black;
 	border-bottom: 1px solid black;
-    
     position: relative;
 }
 .count{
@@ -221,7 +237,7 @@ header{
 .rsvp{
 	z-index: 1;
     width: 100%;
-    height: 120%;
+    min-height: 100%;
     background-color: rgba(255,234,137,1.00);;
     position: relative;
 }
@@ -249,12 +265,8 @@ header{
     font-weight: 400;
 }
 .rsvpContent{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 400px;
-    text-align: left;
+	padding: 40px 40px;
+	text-align: left;
 }
 form{
 	font-family: 'Open Sans', sans-serif;
@@ -298,12 +310,12 @@ button p{
 #errors{
     padding-top: 30px;
 }
-@media only screen and (max-width: 500px){
+/*@media only screen and (max-width: 500px){
 	form{
 		width: 80vw;
 		margin: 0 auto;
 	}
-}
+}*/
 .venue{
     z-index: 1;
     width: 100%;
@@ -323,10 +335,10 @@ button p{
 .venueInfo{
     z-index: 1;
     width: 100%;
-    height: 65%;
+    height: auto;
+	min-height: 100%;
 	background-color: rgba(255,234,137,1.00);
 	line-height: 26px;
-	
 	position: relative;
 }
 .venueInfo a{
@@ -351,7 +363,8 @@ button p{
 .hotelInfo{
     z-index: 1;
     width: 100%;
-    height: 35%;
+    height: auto;
+	max-height: 100%;
 	background-color: rgba(255,234,137,1.00);
 	line-height: 26px;
 	
@@ -390,6 +403,21 @@ button p{
 .galleryImage{
 	width: 100%;
 	display: block;
+}
+
+@media only screen and (min-width: 600px){
+	.rsvpContent{
+		max-width: 800px;
+		margin: 0 auto;
+	}
+	.infoContent{
+		max-width: 800px;
+		margin: 0 auto;
+	}
+	.venueInfo{
+		max-height: 100%;
+		min-height: 0;
+	}
 }
 
 @media only screen and (min-width: 33.75em){
